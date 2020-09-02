@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no,viewport-fit=cover"/>
+<style>
+h1 {
+  font-size: 60px;
+}
+p, h1 {
+  text-align: center;
+  font-size: 40px;
+}
+</style>
+</head>
+<body>
+  <select id="fonts">
+    <option value="SourceHanSerifCN-Medium" selected>思源宋体-Medium</option>
+    <option value="PangMenZhengDao">庞门正道粗书体</option>
+    <option value="RuiziGongfangMeiheiGBK">锐字工房云字库美黑GBK</option>
+    <option value="RuiziZhenyanti">锐字真言体</option>
+    <option value="YousheBiaotihei">优设标题黑</option>
+    <option value="Zihun116">字魂116号-凤鸣手书</option>
+  </select> 
+  <button onclick="changeFont()">切换字体</button>
+  <div id="text">
+    <h1>爱的飞行日志</h1>
+    <p>赤道的边境</p>
+    <p>万里无云 天很清</p>
+    <p>爱你的事情</p>
+    <p>说了千遍 有回音</p>
+    <p>岸边的丘陵</p>
+    <p>崎岖不平 浪入侵</p>
+    <p>我却很专心</p>
+    <p>分辨得出 你的声音</p>
+  </div>
+<script src="./js/axios.min.js"></script>
+<!-- 封装了post请求的js -->
+<script src="./js/post.js"></script>
+<script>
+  function changeFont() {
+    const value = document.querySelector("#fonts").value
+    // 第一个参数是文字所在dom，如id为text的div
+    // 第二个参数是所需的字体，如SourceHanSerifCN-Medium
+    fontmin('#text', value)
+  }
+  changeFont()
+</script>
+</body>
+</html>
