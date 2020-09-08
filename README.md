@@ -122,7 +122,7 @@ function fontmin(selectDom, fontDom) {
   });
 } 
 ```
-## 使用和运行
+## 本地使用和运行
 
 在文件目录下运行
 
@@ -141,6 +141,10 @@ $ node express.js
         #charset koi8-r;
         client_max_body_size 500M;
         #access_log  logs/host.access.log  main;
+
+        location /getfontmin {
+            proxy_pass http://127.0.0.1:3000/getfontmin;
+        }
 
         location /fontmin/ {
             root html; 
