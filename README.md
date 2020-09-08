@@ -1,15 +1,14 @@
 # node-fontmin-project
 
 ## 简介
-```
-1：一个简易的nodejs字体切割程序
-2：移动端页面中加载中文字体太大的前后端整套解决方案
-3：通过字体切割，一个页面中原本需要加载10MB的字体文件可以被压缩在几百KB甚至几十KB之内
-4：纯js代码
 
-Fontmin出自百度前端团队junmer。
-基本使用请点击 资源 中的fontmin链接。
-```
+通过一个接口请求，返回只包含页面中的字体的font文件，解决了中文字体库过大的问题，特别是移动端的页面，速度提升很大
+
+  * 整套方案由纯js实现，轻量级应用
+  * 字体文件变成按需加载，量级从MB变成KB，切割后的大小不如一张普通的图
+  * 对现有项目的页面改动小，对各种类型的项目兼容性好
+  * 可以批量实现
+
 <a href="http://www.lichengblog.com/fontmin/index.html" target="_blank">在线示例</a>
 
 ## 方案原理
@@ -123,6 +122,44 @@ function fontmin(selectDom, fontDom) {
   });
 } 
 ```
+## 使用和运行
+
+在文件目录下运行
+
+```
+$ node express.js
+```
+  * 下载nginx，在nginx/html下新建fontmin文件夹，把本项目所有文件拷贝到fontmin目录下，
+
+  * 配置nginx，conf/nginx.conf
+
+```
+    server {
+        listen       80;
+        server_name  localhost;
+
+        #charset koi8-r;
+        client_max_body_size 500M;
+        #access_log  logs/host.access.log  main;
+
+        location /fontmin/ {
+            root html; 
+        }
+
+        #error_page  404              /404.html;
+
+        # redirect server error pages to the static page /50x.html
+        #
+        error_page   500 502 503 504  /50x.html;
+
+        location = /50x.html {
+            root   html;
+        }
+    }
+```
+
+  * 运行nginx
+  * 用浏览器打开index.html
 
 ### 资源
 

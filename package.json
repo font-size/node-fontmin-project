@@ -11,7 +11,13 @@
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
     "express": "^4.17.1",
-    "fontmin": "^0.9.8"
+    "filereader": "^0.10.3",
+    "fontmin": "^0.9.8",
+    "log4js": "^6.3.0",
+    "node-fetch": "^2.6.0",
+    "superagent": "^6.1.0",
+    "superagent-charset": "^0.1.1"
   }
 }
